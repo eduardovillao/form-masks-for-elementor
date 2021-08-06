@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Form Masks for Elementor
- * Plugin URI: http://www.evcode.com.br
+ * Plugin URI: https://eduardovillao.me/
  * Description: Form Masks for Elementor create a custom control in field advanced tab for your customize your fields with masks. This plugin require the Elementor Pro (Form Widget).
- * Author: EVCODE
- * Author URI: http://evcode.com.br
- * Version: 1.1
+ * Author: EduardoVillao.me
+ * Author URI: https://eduardovillao.me/
+ * Version: 1.4.1
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
