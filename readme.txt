@@ -3,8 +3,8 @@ Contributors: evcode
 Donate link: https://eduardovillao.me/
 Tags: elementor, form, mask, elementor mask, formulario
 Requires at least: 5.0
-Tested up to: 5.7
-Stable tag: 1.4.1
+Tested up to: 5.8
+Stable tag: 1.4.2
 Requires PHP: 7.0
 License: GPLv2License 
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,10 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 == Screenshots ==
 
 == Changelog ==
+
+= 1.4.2 =
+
+* Suppor to Wp 5.8
 
 = 1.4.1 =
 
