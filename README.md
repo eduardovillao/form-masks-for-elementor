@@ -32,7 +32,7 @@ The masks function with filed types 'text' and 'tel'.
 
 = 1.4.1 =
 
-* Fix: active mask on popup is called by link, button and others.
+* Fix: active mask on popup when is called by link, button and others.
 
 = 1.4 =
 
