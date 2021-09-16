@@ -1,10 +1,10 @@
 === Form Masks for Elementor ===
 Contributors: evcode
 Donate link: https://eduardovillao.me/
-Tags: elementor, form, mask, elementor mask, formulario
-Requires at least: 5.0
+Tags: elementor, form, mask, elementor mask, formulario, form mask
+Requires at least: 5.3
 Tested up to: 5.8
-Stable tag: 1.4.2
+Stable tag: 1.5
 Requires PHP: 7.0
 License: GPLv2License 
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -45,9 +45,9 @@ https://www.youtube.com/watch?v=NYoykAUl4QE
 
 #### PRO VERSION ####
 
-Get PRO version [Click Here](https://codecanyon.net/item/form-masks-for-elementor/25872641)
+[Check the PRO version](https://codecanyon.net/item/form-masks-for-elementor/25872641)
 
-In PRO version you WRITE YOUR CUSTOM MASKS. Create the mask you want for your fields!
+In PRO version you can WRITE YOUR CUSTOM MASKS. Create the mask you want for your inputs!
 
 https://www.youtube.com/watch?v=XAuL43HFh8I
 
@@ -84,6 +84,12 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 == Screenshots ==
 
 == Changelog ==
+
+= 1.5 =
+
+* New: support for Pro version.
+* Tweak: improve JS mask files.
+* Tweak: improve plugin code structure.
 
 = 1.4.2 =
 

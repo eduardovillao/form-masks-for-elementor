@@ -2,11 +2,11 @@
 
 Form Masks for Elementor create a custom control in field advanced tab for your customize your fields with masks. This plugin require the Elementor Pro (Form Widget).
 
-The masks function with filed types 'text' and 'tel'.
+The masks work with filed types 'text'.
 
-[Vídeo demo](https://www.youtube.com/watch?v=NYoykAUl4QE)
+https://www.youtube.com/watch?v=NYoykAUl4QE
 
-## Masks Available
+#### Masks Available ####
 
 * Phone - '0000-0000' or '(000) 000-0000' or '(00) 0000-0000'
 
@@ -24,36 +24,10 @@ The masks function with filed types 'text' and 'tel'.
 
 * CEP - '00000-000'
 
-## Changelog
-```
-= 1.4.2 =
+#### Masks Available ####
 
-* Suppor to Wp 5.8
+Check the [Pro version](https://codecanyon.net/item/form-masks-for-elementor/25872641) 
 
-= 1.4.1 =
-
-* Fix: active mask on popup when is called by link, button and others.
-
-= 1.4 =
-
-* Support for Elementor Popup.
-
-= 1.3 =
-
-* Add new mask - Credit card and Credit card date.
-
-= 1.2 =
-
-* Add new mask - Phone 9 digits.
-
-= 1.1 =
-
-* Update the mask control.
-
-= 1.0 =
-
-* Initial release.
-```
-#### CREDITS 
+#### CREDITS  ####
 
 This plugin use the jQuery Mask library plugin. [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
