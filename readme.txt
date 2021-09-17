@@ -85,6 +85,11 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 
 == Changelog ==
 
+= 1.5.1 =
+
+Tweak: mask with 9 digits improved.
+Tweak: update and minify jQuery mask lib.
+
 = 1.5 =
 
 * New: support for Pro version.

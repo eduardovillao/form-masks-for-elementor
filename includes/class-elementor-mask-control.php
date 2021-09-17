@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class FME_Elementor_Forms_Mask {
 
 	public $allowed_fields = [
-		'text'
+		'text',
 	];
 
 	public function __construct() {
