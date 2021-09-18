@@ -5,7 +5,7 @@
  * Description: Form Masks for Elementor create a custom control in field advanced tab for your customize your fields with masks. This plugin require the Elementor Pro (Form Widget).
  * Author: EduardoVillao.me
  * Author URI: https://eduardovillao.me/
- * Version: 1.5.1
+ * Version: 1.5.2
  * Domain Path: /languages
  * Text Domain: form-masks-for-elementor
  * License: GPL-2.0+
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'FME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FME_PLUGN_URL', plugin_dir_url( __FILE__ ) );
-define( 'FME_VERSION' , '1.5.1' );
+define( 'FME_VERSION' , '1.5.2' );
 
 /**
  * Form Mask Elementor Class

@@ -76,22 +76,54 @@ class FME_Elementor_Forms_Mask {
 		$mask_control = new Elementor\Repeater();
 		$mask_control->add_control( 'fme_mask_control', $new_control );
 
+		/**
+		 * Action to insert more controls.
+		 * 
+		 * @since 1.5.2
+		 */
+		do_action( 'fme_after_mask_control_added', $mask_control );
+
 		$pattern_field = $mask_control->get_controls();
-		$pattern_field = $pattern_field['fme_mask_control'];
 
 		/**
-		 * insert new class field in advanced tab before field ID control
+		 * Register control in form advanced tab.
+		 * 
+		 * @since 1.5.2
 		 */
-		$new_order = [];
-		foreach ( $control_data['fields'] as $field_key => $field ) {
-			if ( 'field_value' === $field['name'] ) {
-				$new_order['fme_mask_control'] = $pattern_field;
-			}
-			$new_order[ $field_key ] = $field;
-		}
-		$control_data['fields'] = $new_order;
+		$this->register_control_in_form_advanced_tab( $element, $control_data, $pattern_field );
+		
+	}
 
-		$element->update_control( 'form_fields', $control_data );
+	/**
+	 * Register control in form advanced tab
+	 *
+	 * @param object $element
+	 * @param array $control_data
+	 * @param array $pattern_field
+	 * @return void
+	 * 
+	 * @since 1.5.2
+	 */
+	public function register_control_in_form_advanced_tab( $element, $control_data, $pattern_field ) {
+
+		foreach( $pattern_field as $key => $control ) {
+			
+			if( $key !== '_id' ) {
+
+				$new_order = [];
+				foreach ( $control_data['fields'] as $field_key => $field ) {
+					
+					if ( 'field_value' === $field['name'] ) {
+						$new_order[$key] = $control;
+					}
+					$new_order[ $field_key ] = $field;
+				}
+
+				$control_data['fields'] = $new_order;
+			}
+		}
+
+		return $element->update_control( 'form_fields', $control_data );
 	}
 
 	/**
@@ -109,6 +141,16 @@ class FME_Elementor_Forms_Mask {
 			$form_widget->add_render_attribute( 'input' . $field_index, 'data-fme-mask', $field['fme_mask_control'] );
 			$form_widget->add_render_attribute( 'input' . $field_index, 'class', 'fme-mask-input' );
 		}
+
+		/**
+		 * After mask atribute added
+		 * 
+		 * Action fired to pro version add custom atributes.
+		 * 
+		 * @since 1.5.2
+		 */
+		do_action( 'fme_aftere_mask_atribute_added', $field, $field_index, $form_widget );
+
 		return $field;
 	}
 }
