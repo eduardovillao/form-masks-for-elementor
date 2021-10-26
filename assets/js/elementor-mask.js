@@ -15,7 +15,7 @@
 		'ev-date_time': '00/00/0000 00:00:00'
 	};
 
-    $(window).load( function() {
+    $(window).on( 'load', function() {
 		"use strict";
         $('.fme-mask-input').each(function() {
 			if($( this ).data('fme-mask') !== undefined) {
