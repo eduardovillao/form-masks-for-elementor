@@ -130,7 +130,8 @@ final class FME_Plugin {
 	public function notice_elementor_pro_inactive() {
 
 		$message = sprintf(
-			esc_html__( 'Form Masks for Elementor requires %1$s to be installed and activated.', 'form-masks-for-elementor' ),
+			esc_html__( '%1$s requires %2$s to be installed and activated.', 'form-masks-for-elementor' ),
+			'<strong>Form Masks for Elementor</strong>',
 			'<strong>Elementor Pro</strong>'
 		);
 
@@ -150,3 +151,5 @@ final class FME_Plugin {
 		return function_exists( 'is_plugin_active' ) ? is_plugin_active( $plugin ) : in_array( $plugin, (array) get_option( 'active_plugins', array() ), true );
 	}
 }
+
+FME_Plugin::instance();

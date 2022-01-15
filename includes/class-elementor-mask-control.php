@@ -2,6 +2,10 @@
 
 namespace FME\Includes;
 
+use \Elementor\Plugin as ElementorPlugin;
+use \Elementor\Controls_Manager as ElementorControls;
+use \Elementor\Repeater as ElementorRepeater;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
@@ -27,7 +31,7 @@ class FME_Elementor_Forms_Mask {
 	 */
 	public function add_mask_control( $element, $args ) {
 		
-		$elementor = \Elementor\Plugin::instance();
+		$elementor = ElementorPlugin::instance();
 		$control_data = $elementor->controls_manager->get_control_from_stack( $element->get_name(), 'form_fields' );
 
 		if ( is_wp_error( $control_data ) ) {
@@ -36,7 +40,7 @@ class FME_Elementor_Forms_Mask {
 
 		$new_control = [
 				'label' => __( 'Mask Control', 'form-masks-for-elementor' ),
-				'type' => Elementor\Controls_Manager::SELECT,
+				'type' => ElementorControls::SELECT,
 				'tab' => 'content',
 				'tabs_wrapper' => 'form_fields_tabs',
 				'inner_tab' => 'form_fields_advanced_tab',
@@ -75,7 +79,7 @@ class FME_Elementor_Forms_Mask {
 		 */
 		$new_control = apply_filters( 'fme_after_mask_control_created', $new_control );
 		
-		$mask_control = new Elementor\Repeater();
+		$mask_control = new ElementorRepeater();
 		$mask_control->add_control( 'fme_mask_control', $new_control );
 
 		/**

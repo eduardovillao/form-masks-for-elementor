@@ -35,24 +35,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'FME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FME_PLUGN_URL', plugin_dir_url( __FILE__ ) );
 define( 'FME_VERSION' , '1.6' );
+define( 'FME_PHP_MINIMUM_VERSION', '7.0' );
+define( 'FME_WP_MINIMUM_VERSION', '5.3' );
 
 /**
  * Check PHP and WP version before include plugin class
  * 
  * @since 1.6
  */
-if( ! version_compare( PHP_VERSION, '7.0', '>=' ) ) {
+if( ! version_compare( PHP_VERSION, FME_PHP_MINIMUM_VERSION, '>=' ) ) {
 
 	add_action( 'admin_notices', 'fme_admin_notice_php_version_fail' );
 
-} elseif( ! version_compare( get_bloginfo( 'version' ), '5.3', '>=' ) ) {
+} elseif( ! version_compare( get_bloginfo( 'version' ), FME_WP_MINIMUM_VERSION, '>=' ) ) {
 
 	add_action( 'admin_notices', 'fme_admin_notice_wp_version_fail' );
 
 } else {
 
 	include_once FME_PLUGIN_PATH . 'includes/class-fme-plugin.php';
-	FME_Plugin::instance();
 }
 
 /**
@@ -65,8 +66,8 @@ function fme_admin_notice_php_version_fail() {
 
 	$message = sprintf(
 		esc_html__( '%1$s requires PHP version %2$s or greater.', 'form-masks-for-elementor' ),
-		'Form masks for Elementor',
-		'7.0'
+		'<strong>Form masks for Elementor</strong>',
+		FME_PHP_MINIMUM_VERSION
 	);
 
 	$html_message = sprintf( '<div class="notice notice-error"><p>%1$s</p></div>', $message );
@@ -84,8 +85,8 @@ function fme_admin_notice_wp_version_fail() {
 
 	$message = sprintf(
 		esc_html__( '%1$s requires WordPress version %2$s or greater.', 'form-masks-for-elementor' ),
-		'Form masks for Elementor',
-		'5.3'
+		'<strong>Form masks for Elementor</strong>',
+		FME_WP_MINIMUM_VERSION
 	);
 
 	$html_message = sprintf( '<div class="notice notice-error"><p>%1$s</p></div>', $message );
