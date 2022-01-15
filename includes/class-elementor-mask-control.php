@@ -1,5 +1,7 @@
 <?php
 
+namespace FME\Includes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
@@ -7,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class FME_Elementor_Forms_Mask {
 
 	public $allowed_fields = [
-		'text',
+		'text'
 	];
 
 	public function __construct() {
@@ -154,5 +156,3 @@ class FME_Elementor_Forms_Mask {
 		return $field;
 	}
 }
-
-new FME_Elementor_Forms_Mask;
