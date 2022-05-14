@@ -2,9 +2,9 @@
 Contributors: evcode
 Donate link: https://eduardovillao.me/
 Tags: elementor, form, mask, elementor mask, formulario, form mask
-Requires at least: 5.3
-Tested up to: 5.8
-Stable tag: 1.6
+Requires at least: 5.4
+Tested up to: 6.0
+Stable tag: 1.6.1
 Requires PHP: 7.0
 License: GPLv2License 
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -85,56 +85,47 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 
 == Changelog ==
 
-= 1.6 =
+= 1.6.1 =
+* Changed: compatibility with WordPress 6.0.
 
-Changed: support to string translations.
-Changed: code improvements.
-Changed: plugin header requirements improved.
+= 1.6 =
+* Changed: support to string translations.
+* Changed: code improvements.
+* Changed: plugin header requirements improved.
 
 = 1.5.3 =
-
-Tweak: conflict with jQuery old versions.
+* Tweak: conflict with jQuery old versions.
 
 = 1.5.2 =
-
-Tweak: add hooks to pro version new features.
-Tweak: code improvements.
+* Tweak: add hooks to pro version new features.
+* Tweak: code improvements.
 
 = 1.5.1 =
-
-Tweak: mask with 9 digits improved.
-Tweak: update and minify jQuery mask lib.
+* Tweak: mask with 9 digits improved.
+* Tweak: update and minify jQuery mask lib.
 
 = 1.5 =
-
 * New: support for Pro version.
 * Tweak: improve JS mask files.
 * Tweak: improve plugin code structure.
 
 = 1.4.2 =
-
-* Suppor to Wp 5.8
+* Suppor to WordPress 5.8.
 
 = 1.4.1 =
-
 * Fix: active mask on popup is called by link, button and others.
 
 = 1.4 =
-
 * Support for Elementor Popup.
 
 = 1.3 =
-
 * Add new mask - Credit card and Credit card date.
 
 = 1.2 =
-
 * Add new mask - Phone 9 digits.
 
 = 1.1 =
-
 * Update the mask control.
 
 = 1.0 =
-
 * Initial release.
