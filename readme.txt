@@ -2,9 +2,9 @@
 Contributors: evcode
 Donate link: https://eduardovillao.me/
 Tags: elementor, form, mask, elementor mask, formulario, form mask
-Requires at least: 5.4
-Tested up to: 6.2
-Stable tag: 1.6.3
+Requires at least: 5.5
+Tested up to: 6.5
+Stable tag: 1.6.4
 Requires PHP: 7.0
 License: GPLv2License
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -84,6 +84,10 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 == Screenshots ==
 
 == Changelog ==
+
+= 1.6.5 =
+* Changed: compatibility with WordPress 6.5.
+* Changed: code improvements.
 
 = 1.6.3 =
 * Changed: compatibility with WordPress 6.2.
