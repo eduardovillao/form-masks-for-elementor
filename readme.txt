@@ -1,11 +1,11 @@
 === Form Masks for Elementor ===
 Contributors: evcode
 Donate link: https://eduardovillao.me/
-Tags: elementor, form, mask, elementor mask, formulario, form mask
+Tags: elementor, elementor form, form mask
 Requires at least: 5.5
 Tested up to: 6.7
-Stable tag: 1.6.5
-Requires PHP: 7.0
+Stable tag: 2.0
+Requires PHP: 7.4
 License: GPLv2License
 URI:https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,10 +85,15 @@ Please, send to me: [plugins@eduardovillao.me](mailto:plugins@eduardovillao.me)
 
 == Changelog ==
 
+= 2.0 =
+* Changed: minimum PHP version changed to 7.4.
+* Changed: improve build proccess to assets.
+
+= 1.6.5 =
 * Changed: compatibility with WordPress 6.7.
 * Changed: code improvements.
 
-= 1.6.5 =
+= 1.6.4 =
 * Changed: compatibility with WordPress 6.5.
 * Changed: code improvements.
 
