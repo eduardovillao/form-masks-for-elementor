@@ -15,9 +15,9 @@
 		'ev-date_time': '00/00/0000 00:00:00'
 	};
 
-    $(window).on( 'load', function() {
+	$(window).on( 'load', function() {
 		"use strict";
-        $('.fme-mask-input').each(function() {
+		$('.fme-mask-input').each(function() {
 			if($( this ).data('fme-mask') !== undefined) {
 				var inputMask = $( this ).data("fme-mask");
 				if(inputMask == 'ev-cpf' || inputMask == 'ev-cnpj' || inputMask == 'ev-money') {
@@ -38,6 +38,6 @@
 					}
 				}
 			});
-    	});
+		});
 	});
 })(jQuery);

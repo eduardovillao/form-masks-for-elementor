@@ -7,7 +7,7 @@ use \Elementor\Controls_Manager as ElementorControls;
 use \Elementor\Repeater as ElementorRepeater;
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 class FME_Elementor_Forms_Mask {
@@ -17,20 +17,18 @@ class FME_Elementor_Forms_Mask {
 	];
 
 	public function __construct() {
-		
 		add_action( 'elementor/element/form/section_form_fields/before_section_end', [ $this, 'add_mask_control' ], 100, 2 );
 		add_filter( 'elementor_pro/forms/render/item', [ $this, 'add_mask_atributes' ], 10, 3 );
 	}
 
 	/**
 	 * Add mask control
-	 * 
+	 *
 	 * @since 1.0
 	 * @param $element
 	 * @param $args
 	 */
 	public function add_mask_control( $element, $args ) {
-		
 		$elementor = ElementorPlugin::instance();
 		$control_data = $elementor->controls_manager->get_control_from_stack( $element->get_name(), 'form_fields' );
 
@@ -74,17 +72,17 @@ class FME_Elementor_Forms_Mask {
 
 		/**
 		 * Filter to pro version change control.
-		 * 
+		 *
 		 * @since 1.5
 		 */
 		$new_control = apply_filters( 'fme_after_mask_control_created', $new_control );
-		
+
 		$mask_control = new ElementorRepeater();
 		$mask_control->add_control( 'fme_mask_control', $new_control );
 
 		/**
 		 * Action to insert more controls.
-		 * 
+		 *
 		 * @since 1.5.2
 		 */
 		do_action( 'fme_after_mask_control_added', $mask_control );
@@ -93,11 +91,11 @@ class FME_Elementor_Forms_Mask {
 
 		/**
 		 * Register control in form advanced tab.
-		 * 
+		 *
 		 * @since 1.5.2
 		 */
 		$this->register_control_in_form_advanced_tab( $element, $control_data, $pattern_field );
-		
+
 	}
 
 	/**
@@ -107,18 +105,17 @@ class FME_Elementor_Forms_Mask {
 	 * @param array $control_data
 	 * @param array $pattern_field
 	 * @return void
-	 * 
+	 *
 	 * @since 1.5.2
 	 */
 	public function register_control_in_form_advanced_tab( $element, $control_data, $pattern_field ) {
-
 		foreach( $pattern_field as $key => $control ) {
-			
+
 			if( $key !== '_id' ) {
 
 				$new_order = [];
 				foreach ( $control_data['fields'] as $field_key => $field ) {
-					
+
 					if ( 'field_value' === $field['name'] ) {
 						$new_order[$key] = $control;
 					}
@@ -141,7 +138,6 @@ class FME_Elementor_Forms_Mask {
 	 * @return void
 	 */
 	public function add_mask_atributes( $field, $field_index, $form_widget ) {
-		
 		if ( ! empty( $field['fme_mask_control'] ) && in_array( $field['field_type'], $this->allowed_fields ) && $field['fme_mask_control'] != 'sel' ) {
 
 			$form_widget->add_render_attribute( 'input' . $field_index, 'data-fme-mask', $field['fme_mask_control'] );
@@ -150,9 +146,9 @@ class FME_Elementor_Forms_Mask {
 
 		/**
 		 * After mask atribute added
-		 * 
+		 *
 		 * Action fired to pro version add custom atributes.
-		 * 
+		 *
 		 * @since 1.5.2
 		 */
 		do_action( 'fme_aftere_mask_atribute_added', $field, $field_index, $form_widget );
