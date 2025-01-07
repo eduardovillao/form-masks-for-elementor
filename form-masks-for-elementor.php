@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'FME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FME_PLUGN_URL', plugin_dir_url( __FILE__ ) );
-define( 'FME_VERSION' , '2.0' );
+define( 'FME_VERSION', '2.0' );
 define( 'FME_PHP_MINIMUM_VERSION', '7.4' );
 define( 'FME_WP_MINIMUM_VERSION', '5.5' );
 
@@ -43,10 +43,10 @@ define( 'FME_WP_MINIMUM_VERSION', '5.5' );
  *
  * @since 1.6
  */
-if( ! version_compare( PHP_VERSION, FME_PHP_MINIMUM_VERSION, '>=' ) ) {
+if ( ! version_compare( PHP_VERSION, FME_PHP_MINIMUM_VERSION, '>=' ) ) {
 	add_action( 'admin_notices', 'fme_admin_notice_php_version_fail' );
 
-} elseif( ! version_compare( get_bloginfo( 'version' ), FME_WP_MINIMUM_VERSION, '>=' ) ) {
+} elseif ( ! version_compare( get_bloginfo( 'version' ), FME_WP_MINIMUM_VERSION, '>=' ) ) {
 	add_action( 'admin_notices', 'fme_admin_notice_wp_version_fail' );
 
 } else {
