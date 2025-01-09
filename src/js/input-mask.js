@@ -6,11 +6,9 @@ class inputMask {
 		this.tokens = {
 			'#': {
 				validateRule: /\d/,
-				inputMode: 'numeric',
 			},
 			'*': {
 				validateRule: /[a-zA-Z]/,
-				inputMode: 'alpha',
 			},
 		};
 	}
@@ -67,6 +65,7 @@ class inputMask {
 
 		input.dataset.mask = replaceMaks.mask;
 		input.dataset.maskReverse = replaceMaks.reverse;
+		input.inputmode = replaceMaks.inputmode;
 	}
 
 	maskInput(event) {
@@ -155,10 +154,12 @@ new inputMask({
 	'ev-tel': {
 		mask: '####-####',
 		reverse: false,
+		inputmode: 'tel',
 	},
 	'ev-tel-ddd': {
 		mask: '(##) ####-####',
 		reverse: false,
+		inputmode: 'tel',
 	},
 	'ev-tel-ddd9': {
 		mask: '(##) #####-####',
@@ -167,41 +168,51 @@ new inputMask({
 	'ev-tel-us': {
 		mask: '(###) ###-####',
 		reverse: false,
+		inputmode: 'tel',
 	},
 	'ev-cpf': {
 		mask: '###.###.###-##',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 	'ev-cnpj': {
 		mask: '##.###.###/####-##',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 	'ev-money': {
 		mask: '###.###.###.###.###,##',
 		reverse: true,
+		inputmode: 'numeric',
 	},
 	'ev-ccard': {
 		mask: '####-####-####-####',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 	'ev-ccard-valid': {
 		mask: '##/##',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 	'ev-cep': {
 		mask: '#####-###',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 	'ev-time': {
 		mask: '##:##:##',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 	'ev-date': {
 		mask: '##/##/####',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 	'ev-date_time': {
 		mask: '##/##/#### ##:##:##',
 		reverse: false,
+		inputmode: 'numeric',
 	},
 });
