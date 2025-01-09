@@ -3,7 +3,7 @@
 namespace FME\Includes;
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 /**
@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.4
  */
 final class FME_Plugin {
-
 	/**
 	 * Instance
 	 *
@@ -76,7 +75,7 @@ final class FME_Plugin {
 	 * Constructor
 	 *
 	 * Private method for prevent instance outsite the class.
-	 * 
+	 *
 	 * @since 1.4
 	 *
 	 * @access private
@@ -97,9 +96,9 @@ final class FME_Plugin {
 	 */
 	public function init() {
 
-        /**
-         * Check Elementor Por is actived
-         */
+		/**
+		 * Check Elementor Por is actived
+		 */
 		if( ! $this->plugin_is_active( 'elementor-pro/elementor-pro.php' ) ) {
 
 			add_action( 'admin_notices', [ $this, 'notice_elementor_pro_inactive' ] );
@@ -111,9 +110,9 @@ final class FME_Plugin {
 
 		// required files
 		require_once FME_PLUGIN_PATH . '/includes/class-elementor-mask-control.php';
-        
-        // instanciate mask control class
-        new FME_Elementor_Forms_Mask;
+
+		// instanciate mask control class
+		new FME_Elementor_Forms_Mask;
 
 		// register and enqueue scripts
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_plugin_js' ] );
@@ -129,18 +128,15 @@ final class FME_Plugin {
 	 * @access public
 	 */
 	public function enqueue_plugin_js() {
-
-		wp_register_script( 'fme-jquery-mask',  FME_PLUGN_URL . 'assets/lib/jquery.mask.js', array( 'jquery' ), FME_VERSION, true );
-		wp_register_script( 'fme-mask', FME_PLUGN_URL . 'assets/js/elementor-mask.js', array( 'jquery' ), FME_VERSION, true );
-		wp_enqueue_script( 'fme-jquery-mask' );
-		wp_enqueue_script( 'fme-mask' );
+		\wp_register_script( 'fme-input-mask', FME_PLUGN_URL . 'assets/js/input-mask.min.js', array(), FME_VERSION, true );
+		\wp_enqueue_script( 'fme-input-mask' );
 
 		/**
 		 * Action for enqueue more scripts or remove current scripts
-		 * 
+		 *
 		 * @since 1.5
 		 */
-		do_action( 'fme_after_enqueue_scripts' );
+		\do_action( 'fme_after_enqueue_scripts' );
 	}
 
 	/**
@@ -161,12 +157,12 @@ final class FME_Plugin {
 		);
 
 		$html_message = sprintf( '<div class="notice notice-error"><p>%1$s</p></div>', $message );
-        echo wp_kses_post( $html_message );
+		echo wp_kses_post( $html_message );
 	}
 
 	/**
 	 * Check plugin is activated
-	 * 
+	 *
 	 * @since 1.5
 	 * @return boolean
 	 * @param string $plugin
