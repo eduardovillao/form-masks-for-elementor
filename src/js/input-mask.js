@@ -4,11 +4,8 @@ class inputMask {
 		this.init();
 		this.mappedMasks = mappedMasks || null;
 		this.tokens = {
-			'#': {
+			'0': {
 				validateRule: /\d/,
-			},
-			'*': {
-				validateRule: /[a-zA-Z]/,
 			},
 		};
 	}
@@ -123,9 +120,9 @@ class inputMask {
 		}
 
 		for (let i = 0; i < maskChars.length; i++) {
-			if (maskChars[i] === '#') {
+			if (maskChars[i] === '0') {
 				if (
-					new RegExp(this.tokens['#'].validateRule).test(
+					new RegExp(this.tokens['0'].validateRule).test(
 						unmaskedValue[valueIndex]
 					)
 				) {
@@ -152,66 +149,66 @@ class inputMask {
 
 new inputMask({
 	'ev-tel': {
-		mask: '####-####',
+		mask: '0000-0000',
 		reverse: false,
 		inputmode: 'tel',
 	},
 	'ev-tel-ddd': {
-		mask: '(##) ####-####',
+		mask: '(00) 0000-0000',
 		reverse: false,
 		inputmode: 'tel',
 	},
 	'ev-tel-ddd9': {
-		mask: '(##) #####-####',
+		mask: '(00) 00000-0000',
 		reverse: false,
 	},
 	'ev-tel-us': {
-		mask: '(###) ###-####',
+		mask: '(000) 000-0000',
 		reverse: false,
 		inputmode: 'tel',
 	},
 	'ev-cpf': {
-		mask: '###.###.###-##',
+		mask: '000.000.000-00',
 		reverse: false,
 		inputmode: 'numeric',
 	},
 	'ev-cnpj': {
-		mask: '##.###.###/####-##',
+		mask: '00.000.000/0000-00',
 		reverse: false,
 		inputmode: 'numeric',
 	},
 	'ev-money': {
-		mask: '###.###.###.###.###,##',
+		mask: '000.000.000.000.000,00',
 		reverse: true,
 		inputmode: 'numeric',
 	},
 	'ev-ccard': {
-		mask: '####-####-####-####',
+		mask: '0000-0000-0000-0000',
 		reverse: false,
 		inputmode: 'numeric',
 	},
 	'ev-ccard-valid': {
-		mask: '##/##',
+		mask: '00/00',
 		reverse: false,
 		inputmode: 'numeric',
 	},
 	'ev-cep': {
-		mask: '#####-###',
+		mask: '00000-000',
 		reverse: false,
 		inputmode: 'numeric',
 	},
 	'ev-time': {
-		mask: '##:##:##',
+		mask: '00:00:00',
 		reverse: false,
 		inputmode: 'numeric',
 	},
 	'ev-date': {
-		mask: '##/##/####',
+		mask: '00/00/0000',
 		reverse: false,
 		inputmode: 'numeric',
 	},
 	'ev-date_time': {
-		mask: '##/##/#### ##:##:##',
+		mask: '00/00/0000 00:00:00',
 		reverse: false,
 		inputmode: 'numeric',
 	},
