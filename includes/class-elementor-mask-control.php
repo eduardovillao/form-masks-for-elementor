@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class FME_Elementor_Forms_Mask {
 
 	public $allowed_fields = [
-		'text'
+		'text',
 	];
 
 	public function __construct() {
@@ -139,8 +139,7 @@ class FME_Elementor_Forms_Mask {
 	 */
 	public function add_mask_atributes( $field, $field_index, $form_widget ) {
 		if ( ! empty( $field['fme_mask_control'] ) && in_array( $field['field_type'], $this->allowed_fields ) && $field['fme_mask_control'] != 'sel' ) {
-
-			$form_widget->add_render_attribute( 'input' . $field_index, 'data-fme-mask', $field['fme_mask_control'] );
+			$form_widget->add_render_attribute( 'input' . $field_index, 'data-mask', $field['fme_mask_control'] );
 			$form_widget->add_render_attribute( 'input' . $field_index, 'class', 'fme-mask-input' );
 		}
 

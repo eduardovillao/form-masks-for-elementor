@@ -128,17 +128,15 @@ final class FME_Plugin {
 	 * @access public
 	 */
 	public function enqueue_plugin_js() {
-		wp_register_script( 'fme-jquery-mask',  FME_PLUGN_URL . 'assets/lib/jquery.mask.js', array( 'jquery' ), FME_VERSION, true );
-		wp_register_script( 'fme-mask', FME_PLUGN_URL . 'assets/js/elementor-mask.min.js', array( 'jquery' ), FME_VERSION, true );
-		wp_enqueue_script( 'fme-jquery-mask' );
-		wp_enqueue_script( 'fme-mask' );
+		\wp_register_script( 'fme-input-mask', FME_PLUGN_URL . 'assets/js/input-mask.min.js', array(), FME_VERSION, true );
+		\wp_enqueue_script( 'fme-input-mask' );
 
 		/**
 		 * Action for enqueue more scripts or remove current scripts
 		 *
 		 * @since 1.5
 		 */
-		do_action( 'fme_after_enqueue_scripts' );
+		\do_action( 'fme_after_enqueue_scripts' );
 	}
 
 	/**
