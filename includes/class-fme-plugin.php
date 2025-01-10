@@ -39,7 +39,6 @@ final class FME_Plugin {
 	 * @return FME_Plugin An instance of the class.
 	 */
 	public static function instance() {
-
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
 		}
@@ -56,7 +55,6 @@ final class FME_Plugin {
 	 * @since 1.6
 	 */
 	public function __clone() {
-		// Cloning instances of the class is forbidden.
 		_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', 'form-masks-for-elementor' ), '1.6' );
 	}
 
@@ -80,7 +78,7 @@ final class FME_Plugin {
 	 * @access private
 	 */
 	private function __construct() {
-		\add_action( 'plugins_loaded', array( $this, 'init' ) );
+		\add_action( 'init', array( $this, 'init' ), -10 );
 	}
 
 	/**
@@ -162,5 +160,3 @@ final class FME_Plugin {
 		return function_exists( 'is_plugin_active' ) ? \is_plugin_active( $plugin ) : in_array( $plugin, (array) \get_option( 'active_plugins', array() ), true );
 	}
 }
-
-FME_Plugin::instance();

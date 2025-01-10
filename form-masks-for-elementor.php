@@ -51,6 +51,7 @@ if ( ! version_compare( PHP_VERSION, FME_PHP_MINIMUM_VERSION, '>=' ) ) {
 
 } else {
 	include_once FME_PLUGIN_PATH . 'includes/class-fme-plugin.php';
+	FME\Includes\FME_Plugin::instance();
 }
 
 /**
