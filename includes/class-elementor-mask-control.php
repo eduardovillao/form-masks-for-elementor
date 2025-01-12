@@ -147,8 +147,9 @@ class FME_Elementor_Forms_Mask {
 				'label' => esc_html__( 'Mask Input Mode', 'form-masks-for-elementor' ) . $pro_tag,
 				'description' => esc_html__( 'Input Mode determines the type of on-screen keyboard shown to users on mobile devices.', 'form-masks-for-elementor' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'text',
+				'default' => 'select',
 				'options' => [
+					'select' => esc_html__( 'Select', 'form-masks-for-elementor' ),
 					'text' => esc_html__( 'Text', 'form-masks-for-elementor' ),
 					'decimal' => esc_html__( 'Decimal', 'form-masks-for-elementor' ),
 					'numeric' => esc_html__( 'Numeric', 'form-masks-for-elementor' ),
@@ -249,7 +250,7 @@ class FME_Elementor_Forms_Mask {
 	 * @return void
 	 */
 	public function add_mask_atributes( $field, $field_index, $form_widget ) {
-		if ( ! empty( $field['fme_mask_control'] ) && in_array( $field['field_type'], $this->allowed_fields ) && $field['fme_mask_control'] != 'sel' ) {
+		if ( ! empty( $field['fme_mask_control'] ) && in_array( $field['field_type'], $this->allowed_fields ) && $field['fme_mask_control'] !== 'mask' ) {
 			$form_widget->add_render_attribute( 'input' . $field_index, 'data-mask', $field['fme_mask_control'] );
 			$form_widget->add_render_attribute( 'input' . $field_index, 'class', 'fme-mask-input' );
 		}
