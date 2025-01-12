@@ -106,6 +106,7 @@ final class FME_Plugin {
 		new FME_Elementor_Forms_Mask();
 
 		\add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_plugin_js' ] );
+		\add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'register_editor_scripts') );
 	}
 
 	/**
@@ -127,6 +128,16 @@ final class FME_Plugin {
 		 * @since 1.5
 		 */
 		\do_action( 'fme_after_enqueue_scripts' );
+	}
+
+	/**
+	 * Enqueue script on Elemento Editor
+	 *
+	 * @return void
+	 */
+	public function register_editor_scripts() {
+		wp_register_style( 'fme-input-mask-editor', FME_PLUGN_URL . 'assets/css/editor.min.css', array(), FME_VERSION );
+		wp_enqueue_style( 'fme-input-mask-editor' );
 	}
 
 	/**
