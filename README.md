@@ -82,6 +82,10 @@ Yes, but this feature is available only in the PRO version. With the PRO version
 
 ## Changelog
 ```
+= 2.1 =
+* New: support to controls from version Pro.
+* Changed: code improvements.
+
 = 2.0 =
 * New: add inputmode to open keybord with input context. Ex.: input with tel mask will open numeric keybord.
 * New: remove jQuery mask library to use our own custom library.

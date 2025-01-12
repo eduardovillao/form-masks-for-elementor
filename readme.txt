@@ -4,7 +4,7 @@ Donate link: https://eduardovillao.me/
 Tags: elementor, elementor form, form mask
 Requires at least: 5.5
 Tested up to: 6.7
-Stable tag: 2.0
+Stable tag: 2.1
 Requires PHP: 7.4
 License: GPLv2License
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -96,6 +96,10 @@ Yes, but this feature is available only in the PRO version. With the PRO version
 == Screenshots ==
 
 == Changelog ==
+
+= 2.1 =
+* New: support to controls from version Pro.
+* Changed: code improvements.
 
 = 2.0 =
 * New: add inputmode to open keybord with input context. Ex.: input with tel mask will open numeric keybord.
