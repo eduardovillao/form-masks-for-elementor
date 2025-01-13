@@ -39,7 +39,6 @@ final class FME_Plugin {
 	 * @return FME_Plugin An instance of the class.
 	 */
 	public static function instance() {
-
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
 		}
@@ -56,7 +55,6 @@ final class FME_Plugin {
 	 * @since 1.6
 	 */
 	public function __clone() {
-		// Cloning instances of the class is forbidden.
 		_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', 'form-masks-for-elementor' ), '1.6' );
 	}
 
@@ -67,7 +65,6 @@ final class FME_Plugin {
 	 * @since 1.6
 	 */
 	public function __wakeup() {
-		// Unserializing instances of the class is forbidden.
 		_doing_it_wrong( __FUNCTION__, esc_html__( 'Something went wrong.', 'form-masks-for-elementor' ), '1.6' );
 	}
 
@@ -81,8 +78,7 @@ final class FME_Plugin {
 	 * @access private
 	 */
 	private function __construct() {
-
-		add_action( 'plugins_loaded', [ $this, 'init' ] );
+		\add_action( 'init', array( $this, 'init' ), -10 );
 	}
 
 	/**
@@ -95,27 +91,22 @@ final class FME_Plugin {
 	 * @access public
 	 */
 	public function init() {
-
-		/**
-		 * Check Elementor Por is actived
-		 */
-		if( ! $this->plugin_is_active( 'elementor-pro/elementor-pro.php' ) ) {
-
-			add_action( 'admin_notices', [ $this, 'notice_elementor_pro_inactive' ] );
+		if ( ! did_action( 'elementor/loaded' ) ) {
 			return;
 		}
 
-		// action fired when plugin is activated and dependencies/requirements are checked
-		do_action( 'fme_init' );
+		if ( ! $this->plugin_is_active( 'elementor-pro/elementor-pro.php' ) ) {
+			\add_action( 'admin_notices', array( $this, 'notice_elementor_pro_inactive' ) );
+			return;
+		}
 
-		// required files
+		\do_action( 'fme_init' );
+
 		require_once FME_PLUGIN_PATH . '/includes/class-elementor-mask-control.php';
+		new FME_Elementor_Forms_Mask();
 
-		// instanciate mask control class
-		new FME_Elementor_Forms_Mask;
-
-		// register and enqueue scripts
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_plugin_js' ] );
+		\add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_plugin_js' ] );
+		\add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'register_editor_scripts') );
 	}
 
 	/**
@@ -140,6 +131,16 @@ final class FME_Plugin {
 	}
 
 	/**
+	 * Enqueue script on Elemento Editor
+	 *
+	 * @return void
+	 */
+	public function register_editor_scripts() {
+		wp_register_style( 'fme-input-mask-editor', FME_PLUGN_URL . 'assets/css/editor.min.css', array(), FME_VERSION );
+		wp_enqueue_style( 'fme-input-mask-editor' );
+	}
+
+	/**
 	 * Admin notice - Elementor PRO
 	 *
 	 * Warning when the site doesn't have Elementor PRO activated.
@@ -149,7 +150,6 @@ final class FME_Plugin {
 	 * @access public
 	 */
 	public function notice_elementor_pro_inactive() {
-
 		$message = sprintf(
 			esc_html__( '%1$s requires %2$s to be installed and activated.', 'form-masks-for-elementor' ),
 			'<strong>Form Masks for Elementor</strong>',
@@ -168,9 +168,6 @@ final class FME_Plugin {
 	 * @param string $plugin
 	 */
 	public function plugin_is_active( $plugin ) {
-
-		return function_exists( 'is_plugin_active' ) ? is_plugin_active( $plugin ) : in_array( $plugin, (array) get_option( 'active_plugins', array() ), true );
+		return function_exists( 'is_plugin_active' ) ? \is_plugin_active( $plugin ) : in_array( $plugin, (array) \get_option( 'active_plugins', array() ), true );
 	}
 }
-
-FME_Plugin::instance();

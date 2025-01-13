@@ -27,10 +27,11 @@ Ready-to-Use Masks
 
 ## Exclusive PRO Features
 - **Custom Masks**: Create your own masks for maximum flexibility. Tailor your forms to any requirement.
+- **Prefix and Suffix Options**: Add prefixes and suffixes to your masks for better input guidance.
+- **Minimum and Maximum Character Validation**: Ensure inputs meet your character length requirements.
+- **Inputmode Control**: Customize the input type for better usability across devices.
 
 🚀 **Coming Soon to the PRO Version**
-- **Minimum character limits** to prevent incomplete submissions.
-- **Prefix and suffix** options for masks.
 - Built-in **validation for CPF, CNPJ**, and other formats.
 - And much more…
 
@@ -82,6 +83,10 @@ Yes, but this feature is available only in the PRO version. With the PRO version
 
 ## Changelog
 ```
+= 2.1 =
+* New: support to controls from version Pro.
+* Changed: code improvements.
+
 = 2.0 =
 * New: add inputmode to open keybord with input context. Ex.: input with tel mask will open numeric keybord.
 * New: remove jQuery mask library to use our own custom library.

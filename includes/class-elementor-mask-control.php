@@ -31,33 +31,35 @@ class FME_Elementor_Forms_Mask {
 	public function add_mask_control( $element, $args ) {
 		$elementor = ElementorPlugin::instance();
 		$control_data = $elementor->controls_manager->get_control_from_stack( $element->get_name(), 'form_fields' );
+		$pro_tag = ' <a class="fme-pro-feature" href="https://codecanyon.net/item/form-masks-for-elementor/25872641" target="_blank">' . esc_html__( 'PRO', 'form-masks-for-elementor' ) . '</a>';
 
 		if ( is_wp_error( $control_data ) ) {
 			return;
 		}
 
-		$new_control = [
-				'label' => __( 'Mask Control', 'form-masks-for-elementor' ),
+		$controls_to_register = [
+			'fme_mask_control' => [
+				'label' => esc_html__( 'Mask Control', 'form-masks-for-elementor' ),
 				'type' => ElementorControls::SELECT,
 				'tab' => 'content',
 				'tabs_wrapper' => 'form_fields_tabs',
 				'inner_tab' => 'form_fields_advanced_tab',
 				'default' => 'sel',
 				'options' => [
-					'mask' => __( 'Select Mask', 'form-masks-for-elementor' ),
-					'ev-tel' => __( 'Phone (8 dig)', 'form-masks-for-elementor' ),
-					'ev-tel-ddd' => __( 'Phone (8 dig) + DDD', 'form-masks-for-elementor' ),
-					'ev-tel-ddd9' => __( 'Phone (9 dig) + DDD', 'form-masks-for-elementor' ),
-					'ev-tel-us' => __( 'Phone USA', 'form-masks-for-elementor' ),
-					'ev-cpf' => __( 'CPF', 'form-masks-for-elementor' ),
-					'ev-cnpj' => __( 'CNPJ', 'form-masks-for-elementor' ),
-					'ev-money' => __( 'Money', 'form-masks-for-elementor' ),
-					'ev-ccard' => __( 'Credit Card', 'form-masks-for-elementor' ),
-					'ev-ccard-valid' => __( 'Credit Card Date', 'form-masks-for-elementor' ),
-					'ev-cep' => __( 'CEP', 'form-masks-for-elementor' ),
-					'ev-time' => __( 'Time', 'form-masks-for-elementor' ),
-					'ev-date' => __( 'Date', 'form-masks-for-elementor' ),
-					'ev-date_time' => __( 'Date and Time', 'form-masks-for-elementor' ),
+					'mask' => esc_html__( 'Select Mask', 'form-masks-for-elementor' ),
+					'ev-tel' => esc_html__( 'Phone (8 dig)', 'form-masks-for-elementor' ),
+					'ev-tel-ddd' => esc_html__( 'Phone (8 dig) + DDD', 'form-masks-for-elementor' ),
+					'ev-tel-ddd9' => esc_html__( 'Phone (9 dig) + DDD', 'form-masks-for-elementor' ),
+					'ev-tel-us' => esc_html__( 'Phone USA', 'form-masks-for-elementor' ),
+					'ev-cpf' => esc_html__( 'CPF', 'form-masks-for-elementor' ),
+					'ev-cnpj' => esc_html__( 'CNPJ', 'form-masks-for-elementor' ),
+					'ev-money' => esc_html__( 'Money', 'form-masks-for-elementor' ),
+					'ev-ccard' => esc_html__( 'Credit Card', 'form-masks-for-elementor' ),
+					'ev-ccard-valid' => esc_html__( 'Credit Card Date', 'form-masks-for-elementor' ),
+					'ev-cep' => esc_html__( 'CEP', 'form-masks-for-elementor' ),
+					'ev-time' => esc_html__( 'Time', 'form-masks-for-elementor' ),
+					'ev-date' => esc_html__( 'Date', 'form-masks-for-elementor' ),
+					'ev-date_time' => esc_html__( 'Date and Time', 'form-masks-for-elementor' ),
 				],
 				'conditions' => [
 					'terms' => [
@@ -68,6 +70,122 @@ class FME_Elementor_Forms_Mask {
 						],
 					],
 				],
+			],
+			'fme_mask_alert_pro_version' => [
+				'type' => \Elementor\Controls_Manager::ALERT,
+				'alert_type' => 'info',
+				'content' => esc_html__( '🚀 Unlock features with the PRO version.', 'form-masks-for-elementor' ) . ' <a href="https://codecanyon.net/item/form-masks-for-elementor/25872641" target="_blank">' . esc_html__( 'Upgrade Now', 'form-masks-for-elementor' ) . '</a>',
+				'tab' => 'content',
+				'tabs_wrapper' => 'form_fields_tabs',
+				'inner_tab' => 'form_fields_advanced_tab',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => $this->allowed_fields,
+						],
+					],
+				],
+			],
+			'fme_mask_prefix_control' => [
+				'label' => esc_html__( 'Mask Prefix', 'form-masks-for-elementor' ) . $pro_tag,
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '',
+				'tab' => 'content',
+				'tabs_wrapper' => 'form_fields_tabs',
+				'inner_tab' => 'form_fields_advanced_tab',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => [ 'text' ],
+						],
+					],
+				],
+			],
+			'fme_mask_suffix_control' => [
+				'label' => esc_html__( 'Mask Suffix', 'form-masks-for-elementor' ) . $pro_tag,
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => '',
+				'tab' => 'content',
+				'tabs_wrapper' => 'form_fields_tabs',
+				'inner_tab' => 'form_fields_advanced_tab',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => [ 'text' ],
+						],
+					],
+				],
+			],
+			'fme_mask_reverse_control' => [
+				'label' => esc_html__( 'Mask Reverse?', 'form-masks-for-elementor' ) . $pro_tag,
+				'description' => esc_html__( 'Reverse mode is to format values dynamically as the user types, starting from the right (e.g., 0.01, 1.23, 12.34). Is commonly used for currency masks where the value grows from the decimal point.', 'form-masks-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_off' => esc_html__( 'Off', 'form-masks-for-elementor' ),
+				'label_on' => esc_html__( 'On', 'form-masks-for-elementor' ),
+				'return_value' => 'true',
+				'default' => '',
+				'tab' => 'content',
+				'tabs_wrapper' => 'form_fields_tabs',
+				'inner_tab' => 'form_fields_advanced_tab',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => [ 'text' ],
+						],
+					],
+				],
+			],
+			'fme_mask_inputmode_control' => [
+				'label' => esc_html__( 'Mask Input Mode', 'form-masks-for-elementor' ) . $pro_tag,
+				'description' => esc_html__( 'Input Mode determines the type of on-screen keyboard shown to users on mobile devices.', 'form-masks-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'select',
+				'options' => [
+					'select' => esc_html__( 'Select', 'form-masks-for-elementor' ),
+					'text' => esc_html__( 'Text', 'form-masks-for-elementor' ),
+					'decimal' => esc_html__( 'Decimal', 'form-masks-for-elementor' ),
+					'numeric' => esc_html__( 'Numeric', 'form-masks-for-elementor' ),
+					'tel' => esc_html__( 'Telephone', 'form-masks-for-elementor' ),
+					'search' => esc_html__( 'Search', 'form-masks-for-elementor' ),
+					'email' => esc_html__( 'Email', 'form-masks-for-elementor' ),
+					'url' => esc_html__( 'Url', 'form-masks-for-elementor' ),
+				],
+				'tab' => 'content',
+				'tabs_wrapper' => 'form_fields_tabs',
+				'inner_tab' => 'form_fields_advanced_tab',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => [ 'text' ],
+						],
+					],
+				],
+			],
+			'fme_mask_divider_control' => [
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+				'tab' => 'content',
+				'tabs_wrapper' => 'form_fields_tabs',
+				'inner_tab' => 'form_fields_advanced_tab',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => [ 'text' ],
+						],
+					],
+				],
+			],
 		];
 
 		/**
@@ -75,19 +193,14 @@ class FME_Elementor_Forms_Mask {
 		 *
 		 * @since 1.5
 		 */
-		$new_control = apply_filters( 'fme_after_mask_control_created', $new_control );
+		$controls_to_register = apply_filters( 'fme_after_mask_control_created', $controls_to_register );
 
-		$mask_control = new ElementorRepeater();
-		$mask_control->add_control( 'fme_mask_control', $new_control );
+		$controls_repeater = new ElementorRepeater();
+		foreach ( $controls_to_register as $key => $control ) {
+			$controls_repeater->add_control( $key, $control );
+		}
 
-		/**
-		 * Action to insert more controls.
-		 *
-		 * @since 1.5.2
-		 */
-		do_action( 'fme_after_mask_control_added', $mask_control );
-
-		$pattern_field = $mask_control->get_controls();
+		$pattern_field = $controls_repeater->get_controls();
 
 		/**
 		 * Register control in form advanced tab.
@@ -95,7 +208,6 @@ class FME_Elementor_Forms_Mask {
 		 * @since 1.5.2
 		 */
 		$this->register_control_in_form_advanced_tab( $element, $control_data, $pattern_field );
-
 	}
 
 	/**
@@ -138,7 +250,7 @@ class FME_Elementor_Forms_Mask {
 	 * @return void
 	 */
 	public function add_mask_atributes( $field, $field_index, $form_widget ) {
-		if ( ! empty( $field['fme_mask_control'] ) && in_array( $field['field_type'], $this->allowed_fields ) && $field['fme_mask_control'] != 'sel' ) {
+		if ( ! empty( $field['fme_mask_control'] ) && in_array( $field['field_type'], $this->allowed_fields ) && $field['fme_mask_control'] !== 'mask' ) {
 			$form_widget->add_render_attribute( 'input' . $field_index, 'data-mask', $field['fme_mask_control'] );
 			$form_widget->add_render_attribute( 'input' . $field_index, 'class', 'fme-mask-input' );
 		}
