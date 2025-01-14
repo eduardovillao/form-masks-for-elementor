@@ -30,7 +30,7 @@ Ready-to-Use Masks
 - **Prefix and Suffix Options**: Add prefixes and suffixes to your masks for better input guidance.
 - **Minimum and Maximum Character Validation**: Ensure inputs meet your character length requirements.
 - **Inputmode Control**: Customize the input type for better usability across devices.
-- **Built-in **validation for CPF, CNPJ**.
+- **Built-in validation**: Rules to validate CPF (Brazilian ID), CNPJ (Brazilian Company ID)**.
 
 **PRO VERSION**
 [Check the PRO version here](https://codecanyon.net/item/form-masks-for-elementor/25872641)
