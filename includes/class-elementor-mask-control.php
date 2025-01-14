@@ -122,6 +122,29 @@ class FME_Elementor_Forms_Mask {
 					],
 				],
 			],
+			'fme_mask_validation_control' => [
+				'label' => esc_html__( 'Validaiton', 'form-masks-for-elementor' ) . $pro_tag,
+				'description' => esc_html__( 'Built-in validation ensures accurate input and prevents submission errors.', 'form-masks-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'select',
+				'options' => [
+					'select' => esc_html__( 'Select', 'form-masks-for-elementor' ),
+					'cpf' => esc_html__( 'CPF (Brazilian ID)', 'form-masks-for-elementor' ),
+					'cnpj' => esc_html__( 'CNPJ (Brazilian Company ID)', 'form-masks-for-elementor' ),
+				],
+				'tab' => 'content',
+				'tabs_wrapper' => 'form_fields_tabs',
+				'inner_tab' => 'form_fields_advanced_tab',
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => [ 'text' ],
+						],
+					],
+				],
+			],
 			'fme_mask_reverse_control' => [
 				'label' => esc_html__( 'Mask Reverse?', 'form-masks-for-elementor' ) . $pro_tag,
 				'description' => esc_html__( 'Reverse mode is to format values dynamically as the user types, starting from the right (e.g., 0.01, 1.23, 12.34). Is commonly used for currency masks where the value grows from the decimal point.', 'form-masks-for-elementor' ),
