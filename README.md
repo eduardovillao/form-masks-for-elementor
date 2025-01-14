@@ -30,10 +30,7 @@ Ready-to-Use Masks
 - **Prefix and Suffix Options**: Add prefixes and suffixes to your masks for better input guidance.
 - **Minimum and Maximum Character Validation**: Ensure inputs meet your character length requirements.
 - **Inputmode Control**: Customize the input type for better usability across devices.
-
-🚀 **Coming Soon to the PRO Version**
-- Built-in **validation for CPF, CNPJ**, and other formats.
-- And much more…
+- **Built-in **validation for CPF, CNPJ**.
 
 **PRO VERSION**
 [Check the PRO version here](https://codecanyon.net/item/form-masks-for-elementor/25872641)
@@ -83,6 +80,10 @@ Yes, but this feature is available only in the PRO version. With the PRO version
 
 ## Changelog
 ```
+= 2.2 =
+* New: add support to CPF (Brazilian ID) and CNPJ (Brazilian Company ID) validation on pro version.
+* Changed: code improvements.
+
 = 2.1 =
 * New: support to controls from version Pro.
 * Changed: code improvements.
