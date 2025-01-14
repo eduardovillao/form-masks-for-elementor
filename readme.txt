@@ -4,7 +4,7 @@ Donate link: https://eduardovillao.me/
 Tags: elementor, elementor form, form mask
 Requires at least: 5.5
 Tested up to: 6.7
-Stable tag: 2.2
+Stable tag: 2.3
 Requires PHP: 7.4
 License: GPLv2License
 URI:https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,8 @@ Yes, but this feature is available only in the PRO version. With the PRO version
 == Screenshots ==
 
 == Changelog ==
+= 2.3 =
+* Fix: free version blocking text field in some conditions.
 
 = 2.2 =
 * New: add support to CPF (Brazilian ID) and CNPJ (Brazilian Company ID) validation on pro version.
