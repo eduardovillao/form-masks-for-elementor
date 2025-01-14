@@ -80,6 +80,9 @@ Yes, but this feature is available only in the PRO version. With the PRO version
 
 ## Changelog
 ```
+= 2.3 =
+* Fix: free version blocking text field in some conditions.
+
 = 2.2 =
 * New: add support to CPF (Brazilian ID) and CNPJ (Brazilian Company ID) validation on pro version.
 * Changed: code improvements.
