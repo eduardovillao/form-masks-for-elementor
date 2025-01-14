@@ -44,7 +44,7 @@ class FME_Elementor_Forms_Mask {
 				'tab' => 'content',
 				'tabs_wrapper' => 'form_fields_tabs',
 				'inner_tab' => 'form_fields_advanced_tab',
-				'default' => 'sel',
+				'default' => 'mask',
 				'options' => [
 					'mask' => esc_html__( 'Select Mask', 'form-masks-for-elementor' ),
 					'ev-tel' => esc_html__( 'Phone (8 dig)', 'form-masks-for-elementor' ),
