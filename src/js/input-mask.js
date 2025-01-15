@@ -46,7 +46,6 @@ class inputMask {
 		this.inputs.forEach((input) => {
 			this.handleMappedMasks(input);
 			input.addEventListener('input', this.maskInput.bind(this));
-			input.addEventListener('keydown', this.handleBackspace.bind(this));
 		});
 	}
 
@@ -66,6 +65,10 @@ class inputMask {
 	}
 
 	maskInput(event) {
+		if (event.inputType === 'deleteContentBackward') {
+			return;
+		}
+
 		const input = event.target;
 		const mask = input.dataset.mask;
 		const value = input.value;
@@ -85,24 +88,6 @@ class inputMask {
 		const allowTokensRegex = new RegExp(`[${allowTokens.join('')}]`, 'g');
 		const maskLiteralsToRemove = mask.replace(allowTokensRegex, '');
 		return value.replace(new RegExp(`[${maskLiteralsToRemove}]`, 'g'), '');
-	}
-
-	handleBackspace(event) {
-		const input = event.target;
-		if (
-			event.key === 'Backspace' &&
-			input.selectionStart === input.selectionEnd
-		) {
-			const pos = input.selectionStart;
-			if (pos > 0) {
-				const value = input.value;
-				if (!/\d/.test(value[pos - 1])) {
-					event.preventDefault();
-					input.value = value.slice(0, pos - 1) + value.slice(pos);
-					input.setSelectionRange(pos - 1, pos - 1);
-				}
-			}
-		}
 	}
 
 	applyMask(unmaskedValue, mask, isReverse) {
